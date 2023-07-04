@@ -5,7 +5,7 @@ import { FetchApiDataService } from '../fetch-api-data.service';
 @Component({
   selector: 'app-genre-details',
   templateUrl: './genre-details.component.html',
-  styleUrls: ['./genre-details.component.scss'],
+  styleUrls: ['./genre-details.component.css'],
 })
 export class GenreDetailsComponent implements OnInit {
   constructor(
