@@ -1,0 +1,95 @@
+/* CSS */
+:root {
+  --backgroundColor: #0f120e;
+  --cardColor: #1a1d1a;
+  --buttonMainColor: #3c50fa;
+  --textColor: #fff;
+  --textSubtitleColor: #cbcaca;
+  --boxShadowColor: #4c4c4c;
+}
+
+.user-profile {
+  flex-direction: column;
+}
+
+.top-container {
+  display: flex;
+  flex-direction: row;
+  width: 90%;
+  margin: 20px auto;
+  margin-bottom: 0px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.delete-button {
+  background-color: #e91e63 !important;
+  color: var(--textColor) !important;
+}
+
+.user-info-header {
+  color: var(--textColor);
+  font-family: "Poppins", sans-serif;
+  font-size: larger;
+}
+
+.user-profile-cards {
+  display: flex;
+  flex-direction: row;
+  width: 90%;
+  margin: 20px auto;
+  margin-bottom: 0px;
+  justify-content: space-around;
+  align-items: stretch;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.user-info-card {
+  min-width: 20%;
+}
+
+.update-card {
+  flex-shrink: 1;
+  min-width: fit-content;
+}
+
+.update-input-container {
+  display: flex;
+  gap: 10px 20px;
+  flex-wrap: wrap;
+}
+
+.update-input {
+  min-width: 40%;
+  flex-shrink: 1;
+}
+
+mat-card-title {
+  color: var(--buttonMainColor);
+  margin-bottom: 20px;
+}
+
+mat-card {
+  margin: 20px auto;
+  background-color: var(--cardColor);
+  color: var(--textColor);
+  padding-left: 10px;
+}
+
+mat-card-content div {
+  margin-bottom: 10px;
+}
+
+mat-card-content span {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.button-container {
+  display: flex;
+  margin-bottom: 10px;
+  margin-right: 20px;
+  justify-content: end;
+  text-align: end;
+}
