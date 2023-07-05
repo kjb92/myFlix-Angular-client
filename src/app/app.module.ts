@@ -26,6 +26,8 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { DirectorDetailsComponent } from './director-details/director-details.component';
 import { GenreDetailsComponent } from './genre-details/genre-details.component';
 import { MovieDetailsComponent } from './movie-details/movie-details.component';
+import { DatePipe } from '@angular/common';
+
 
 const appRoutes: Routes = [
   { path: 'welcome', component: WelcomePageComponent },
@@ -62,7 +64,7 @@ const appRoutes: Routes = [
     MatIconModule,
     MatToolbarModule
   ],
-  providers: [],
+  providers: [DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
