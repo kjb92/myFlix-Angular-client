@@ -11,7 +11,7 @@ export class MovieDetailsComponent implements OnInit {
   constructor(
     public fetchApiData: FetchApiDataService,
     @Inject(MAT_DIALOG_DATA)
-    public movieData: {
+    public data: {
       title: string;
       director: string;
       genre: string;

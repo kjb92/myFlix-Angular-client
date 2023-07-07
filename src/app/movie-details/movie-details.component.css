@@ -1,0 +1,21 @@
+mat-card {
+  max-width: 500px;
+  border: none;
+  padding: 20px;
+  row-gap: 15px;
+}
+
+mat-card-title {
+  font-size: larger;
+  font-weight: 600;
+}
+
+mat-dialog-content {
+  line-height: 18px;
+  padding: 0px !important;
+}
+
+mat-card-actions {
+  justify-content: flex-end;
+}
+
