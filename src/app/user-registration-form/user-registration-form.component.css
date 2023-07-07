@@ -1,0 +1,24 @@
+* {
+  box-sizing: border-box;
+}
+
+mat-card {
+  display: flex;
+  flex-direction: column;
+  row-gap: 15px;
+  height: fit-content;
+}
+
+mat-card-title {
+  font-weight: 700;
+  font-size: x-large;
+}
+
+mat-form-field {
+  display: flex;
+  flex-grow: 1;
+}
+
+mat-card-actions {
+  padding: 16px !important;
+}
