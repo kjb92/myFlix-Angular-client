@@ -1,6 +1,7 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { FetchApiDataService } from '../fetch-api-data.service';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-director-details',
@@ -15,7 +16,8 @@ export class DirectorDetailsComponent implements OnInit {
       name: string;
       bio: string;
       birth: string;
-    }
+    },
+    private datePipe: DatePipe
   ) {}
 
   ngOnInit(): void {}
