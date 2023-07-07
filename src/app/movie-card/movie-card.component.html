@@ -1,26 +1,31 @@
 <app-nav-bar></app-nav-bar>
 <div style="display: flex;" class="movies-view">
   <mat-card *ngFor="let movie of movies; let i=index;">
-    <mat-card-header>
-      <mat-card-title>{{movie.title}}</mat-card-title>
-      <mat-card-subtitle>Directed by: {{movie.director.name}}</mat-card-subtitle>
-    </mat-card-header>
-    <img src={{movie.imagePath}} alt={{movie.title}} />
-    <mat-card-actions>
-      <div><button mat-button (click)="openGenreDetails(movie.genre[0].name, movie.genre[0].description)"
-          color="primary">Genre</button>
-        <button mat-button (click)="openDirectorDetails(movie.director.name, movie.director.bio, movie.director.birth)"
-          color="primary">Director</button>
-        <button mat-button
-          (click)="openMovieDetails(movie.title, movie.director.name, movie.genre.name, movie.description, movie.imagePath)"
-          color="primary">Details</button>
+    <mat-card-header style="display: flex; align-items: flex-start;">
+      <div style="display: flex; flex-grow: 1; flex-direction: column;">
+        <mat-card-title>{{ movie.title }}</mat-card-title>
+        <mat-card-subtitle>by {{ movie.director.name }}</mat-card-subtitle>
       </div>
-      <button class="icon-button" *ngIf="!isFavorite(movie._id)" (click)="addToFavorites(movie._id)">
-        <mat-icon>favorite_border</mat-icon>
-      </button>
-      <button class="icon-button" *ngIf="isFavorite(movie._id)" (click)="deleteFromFavorites(movie._id)">
-        <mat-icon class="is-favorite">favorite</mat-icon>
-      </button>
+      <div>
+        <button class="icon-button" *ngIf="!isFavorite(movie._id)" (click)="addToFavorites(movie._id)">
+          <mat-icon>favorite_border</mat-icon>
+        </button>
+        <button class="icon-button" *ngIf="isFavorite(movie._id)" (click)="deleteFromFavorites(movie._id)">
+          <mat-icon>favorite</mat-icon>
+        </button>
+      </div>
+    </mat-card-header>
+    <img [src]="movie.imagePath" [alt]="movie.title" />
+    <mat-card-actions>
+      <button mat-stroked-button
+        (click)="openGenreDetails(movie.genre[0].name, movie.genre[0].description)"
+        >Genre</button>
+      <button mat-stroked-button
+        (click)="openDirectorDetails(movie.director.name, movie.director.bio, movie.director.birth)"
+        >Director</button>
+      <button mat-stroked-button
+        (click)="openMovieDetails(movie.description)"
+        >Synopsis</button>
     </mat-card-actions>
   </mat-card>
 </div>

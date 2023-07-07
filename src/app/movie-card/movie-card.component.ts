@@ -11,7 +11,7 @@ import { MovieDetailsComponent } from '../movie-details/movie-details.component'
 @Component({
   selector: 'app-movie-card',
   templateUrl: './movie-card.component.html',
-  styleUrls: ['./movie-card.component.css']
+  styleUrls: ['./movie-card.component.css'],
 })
 export class MovieCardComponent {
   movies: any[] = [];
@@ -20,7 +20,7 @@ export class MovieCardComponent {
     public fetchApiData: FetchApiDataService,
     public dialog: MatDialog,
     public snackBar: MatSnackBar
-  ) { }
+  ) {}
 
   ngOnInit(): void {
     this.getMovies();
@@ -28,27 +28,19 @@ export class MovieCardComponent {
 
   getMovies(): void {
     this.fetchApiData.getAllMovies().subscribe((resp: any) => {
-        this.movies = resp;
-        console.log(this.movies);
-        return this.movies;
-      });
-  }
-
-  getFavoriteMovies(): void {
-    this.fetchApiData.getOneUser().subscribe((resp: any) => {
-      this.favorites = resp.favoriteMovies;
-      console.log(this.favorites);
-      return this.favorites;
+      this.movies = resp;
+      console.log(this.movies);
+      return this.movies;
     });
   }
 
   isFavorite(id: string): boolean {
-    return this.favorites.includes(id);
+    return this.fetchApiData.isFavoriteMovie(id);;
   }
 
   addToFavorites(id: string): void {
     console.log(id);
-    this.fetchApiData.addFavoriteMovie(id).subscribe((res) => {
+    this.fetchApiData.addFavoriteMovie(id).subscribe((res: any) => {
       console.log(res);
       this.snackBar.open('Movie added to favorites', 'OK', {
         duration: 4000,
@@ -59,7 +51,7 @@ export class MovieCardComponent {
 
   deleteFromFavorites(id: string): void {
     console.log(id);
-    this.fetchApiData.deleteFavoriteMovie(id).subscribe((res) => {
+    this.fetchApiData.deleteFavoriteMovie(id).subscribe((res: any) => {
       console.log(res);
       this.snackBar.open('Movie deleted from favorites', 'OK', {
         duration: 4000,
@@ -90,22 +82,13 @@ export class MovieCardComponent {
   }
 
   openMovieDetails(
-    title: string,
-    movieDirector: string,
-    movieGenre: string,
-    movieDescription: string,
-    movieImagePath: string
+    description: string
   ): void {
+    console.log(description);
     this.dialog.open(MovieDetailsComponent, {
       data: {
-        title: title,
-        director: movieDirector,
-        genre: movieGenre,
-        description: movieDescription,
-        image: movieImagePath,
+        description: description
       },
     });
   }
-
 }
-
