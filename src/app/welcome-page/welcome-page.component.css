@@ -1,12 +1,3 @@
-:root {
-  --backgroundColor: #0f120e;
-  --cardColor: #1a1d1a;
-  --textColor: #fff;
-  --buttonMainColor: #3c50fa;
-  --textSubtitleColor: #cbcaca;
-  --boxShadowColor: #4c4c4c;
-}
-
 * {
   box-sizing: border-box;
 }
@@ -14,19 +5,18 @@
 .welcome-page {
   display: flex;
   flex-direction: column;
+  background-color: antiquewhite;
   align-items: center;
   height: 100vh;
   padding: 20px 30px;
-  background-color: var(--backgroundColor);
 }
 
 .welcome-card {
-  max-width: 700px;
+  width: 300px;
+  height: fit-content;
   margin: auto;
   padding: 30px;
   flex-direction: column;
-  color: var(--textColor);
-  background-color: var(--cardColor);
 }
 
 .mat-mdc-card-header {
@@ -35,22 +25,16 @@
 }
 
 .welcome-title {
-  font-family: "Poppins", sans-serif;
   font-weight: 700;
   font-size: xx-large;
-}
-
-.welcome-subtitle {
-  color: var(--textSubtitleColor);
-  font-family: "Poppins", sans-serif;
+  margin-bottom: 1vh;
 }
 
 .buttons-container {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
 }
 
-button {
-  color: var(--textColor) !important;
-  background-color: var(--buttonMainColor) !important;
+.mdc-card__actions {
+  padding: 0px !important;
 }
