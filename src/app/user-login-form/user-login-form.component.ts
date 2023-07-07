@@ -40,7 +40,7 @@ export class UserLoginFormComponent {
         this.dialogRef.close(); // This will close the modal on success!
         console.log(result);
         this.router.navigate(['movies']);
-        this.snackBar.open(result, 'OK', {
+        this.snackBar.open('Login successful!', 'OK', {
           duration: 2000,
         });
       },
