@@ -13,6 +13,10 @@ import { MovieDetailsComponent } from '../movie-details/movie-details.component'
   templateUrl: './movie-card.component.html',
   styleUrls: ['./movie-card.component.css'],
 })
+
+/**
+ * The MovieCardComponent class fetches and displays all movies in card format
+ */
 export class MovieCardComponent {
   movies: any[] = [];
   favorites: any[] = [];
@@ -26,6 +30,10 @@ export class MovieCardComponent {
     this.getMovies();
   }
 
+  /**
+   * Fetch all movies with FetchApiDataService.getAllMovies()
+   * @returns all movies in an array of objects
+   */
   getMovies(): void {
     this.fetchApiData.getAllMovies().subscribe((resp: any) => {
       this.movies = resp;
@@ -34,10 +42,19 @@ export class MovieCardComponent {
     });
   }
 
+  /**
+   * Check if a movie id is included in the user's favorites
+   * @param id
+   * @returns a boolean value
+   */
   isFavorite(id: string): boolean {
     return this.fetchApiData.isFavoriteMovie(id);;
   }
 
+  /**
+  * Add one movie id into the user's favorites with FetchApiDataService.addFavoriteMovie()
+  * @param id
+  */
   addToFavorites(id: string): void {
     console.log(id);
     this.fetchApiData.addFavoriteMovie(id).subscribe((res: any) => {
@@ -49,6 +66,10 @@ export class MovieCardComponent {
     });
   }
 
+  /**
+   * Remove one movie id from the user's favorites with FetchApiDataService.deleteFavoriteMovie()
+   * @param id
+   */
   deleteFromFavorites(id: string): void {
     console.log(id);
     this.fetchApiData.deleteFavoriteMovie(id).subscribe((res: any) => {
@@ -60,6 +81,11 @@ export class MovieCardComponent {
     });
   }
 
+  /**
+   * Opens the genre dialog.
+   * @param name The genre's name to show on the dialog (title)
+   * @param description The genre's description to show on the dialog
+   */
   openGenreDetails(name: string, description: string): void {
     console.log(name);
     this.dialog.open(GenreDetailsComponent, {
@@ -70,6 +96,12 @@ export class MovieCardComponent {
     });
   }
 
+  /**
+   * Opens the director dialog.
+   * @param name The director's name to show on the dialog (title)
+   * @param bio The director's biography to show on the dialog
+   * @param birth The director's birthday to show on the dialog
+  */
   openDirectorDetails(name: string, bio: string, birth: string): void {
     console.log(name);
     this.dialog.open(DirectorDetailsComponent, {
@@ -81,6 +113,10 @@ export class MovieCardComponent {
     });
   }
 
+  /**
+   * Opens the movie description dialog.
+   * @param description The text to show on the dialog
+   */
   openMovieDetails(
     description: string
   ): void {
