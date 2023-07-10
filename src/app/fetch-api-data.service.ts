@@ -121,7 +121,7 @@ export class FetchApiDataService {
     localStorage.setItem('user', JSON.stringify(user));
     console.log(token);
     return this.http
-      .post(apiURL + 'users/' + user.username + '/movies/' + id, {
+      .post(apiURL + 'users/' + user.username + '/movies/' + id, '', {
         headers: new HttpHeaders({
           Authorization: 'Bearer ' + token,
         }),
